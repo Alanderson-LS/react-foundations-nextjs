@@ -26,14 +26,21 @@
         function HomePage() {
           const names = ['Ada lovelace', 'Grace Hopper', 'Margaret Hamilton']
 
+          function HandleClick() {
+            setLikes(likes + 1)
+          }
+
+          const [likes, setLikes] = React.useState(0);
+
           return (
             <div>
               <Header title="Develop. Preview. Ship." />
               <ul>
                 {names.map((name) => (
-                  <li>{name}</li>
+                  <li key={name}>{name}</li>
                 ))}
               </ul>
+              <button onClick={HandleClick}>Like ({likes})</button>
             </div>
           );
         }
